@@ -1,0 +1,14 @@
+bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+
+bin/zookeeper-shell.sh localhost:2181 -zk-tls-config-file config/zookeeper-client.properties 
+ls /brokers/ids                                       (to check running brokers)
+
+bin/kafka-server-start.sh -daemon config/server0.properties 
+
+ls /brokers/ids                                       (to check running brokers)
+bin/kafka-topics.sh --create --topic test --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092 --command-config config/kafka-client.properties 
+bin/kafka-topics.sh --list --bootstrap-server localhost:9092 --command-config config/kafka-client.properties  
+bin/kafka-topics.sh --topic test --describe --bootstrap-server localhost:9092 --command-config config/kafka-client.properties  
+
+bin/kafka-console-producer.sh --topic test --producer.config config/kafka-client.properties  --broker-list localhost:9092
+bin/kafka-console-consumer.sh --topic test --from-beginning --consumer.config config/kafka-client.properties  --bootstrap-server localhost:9092
