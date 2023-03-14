@@ -34,5 +34,7 @@ fail_by_rc docker cp $container_id:/certs/client.key.pem ${PWD}/kafkaCerts/clien
 
 fail_by_rc docker cp $container_id:/certs/rootCA.crt.pem ${PWD}/kafkaCerts/rootCA.crt.pem
 
+fail_by_rc docker cp $container_id:/certs/server.crt.pem ${PWD}/kafkaCerts/server.crt.pem
+
 echo -e "--- logging container logs ---"
 docker logs --follow $container_id

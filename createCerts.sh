@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Author: Abhijit Wakchaure <awakchau@tibco.com>
 # Script Version: v2.0.0
 
 # ------------------------------  Configurations  ------------------------------
