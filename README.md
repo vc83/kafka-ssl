@@ -12,8 +12,10 @@ Basic commands
  ./kafka-start.sh
 ```
 
-This script will create the ssl certificates and start kafka instance with one broker in docker container. whic can be access on localhost:9092. 
+This script will create the ssl certificates and start kafka instance with one broker in docker container. which can be access on localhost:9092. 
 Required certificates for SSL connection will get downloaded to kafkaCerts in current working diretory.
+
+Topic : test
 
 ### Stop the server
 

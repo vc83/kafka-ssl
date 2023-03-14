@@ -14,7 +14,12 @@ function fail_by_rc {
   fi
 }
 
-container_id=$(docker container ls  | grep "kafka" | awk '{print $1}')
+container_id=$(docker container ls -a | grep "kafka" | awk '{print $1}')
+
+if [[ -z "${container_id}" ]]; then
+  echo "No kafka running container found !!"
+  exit 0
+fi
 
 fail_by_rc docker stop $container_id
 fail_by_rc docker rm $container_id
